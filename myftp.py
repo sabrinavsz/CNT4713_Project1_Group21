@@ -33,14 +33,14 @@ def receiveData(clientSocket):
 
 # If you use passive mode you may want to use this method but you have to complete it
 # You will not be penalized if you don't
-#def modePASV(clientSocket):
-    #command = "PASV" + "\r\n"
+def modePASV(clientSocket):
+    command = "PASV" + "\r\n"
     # Complete
-    #status = 0
-    #if data.startswith(""):
-        #status = 227
+    status = 0
+    if data.startswith(""):
+        status = 227
         # Complete
-        #dataSocket.connect((ip, port))
+        dataSocket.connect((ip, port))
         
     return status, dataSocket
 
@@ -87,18 +87,18 @@ def main():
                 print("Login unsuccessful.")
 
        
-    #if status == 230:
+    if status == 230:
         # It is your choice whether to use ACTIVE or PASV mode. In any event:
         # COMPLETE
-        #pasvStatus, dataSocket = modePASV(clientSocket)
-        #if pasvStatus == 227:
+        pasvStatus, dataSocket = modePASV(clientSocket)
+        if pasvStatus == 227:
             # COMPLETE
     
     print("Disconnecting...")
     
 
     clientSocket.close()
-    #dataSocket.close()
+    dataSocket.close()
     
     sys.exit()#Terminate the program after sending the corresponding data
 
