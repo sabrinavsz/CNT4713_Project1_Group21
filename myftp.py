@@ -99,6 +99,8 @@ def main():
 
     clientSocket.close()
     dataSocket.close()
+
+    #tested login with net.cs.fiu.edu
     
     sys.exit()#Terminate the program after sending the corresponding data
 
